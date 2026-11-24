@@ -1,30 +1,28 @@
 {
-    "version":  "1.16.0",
+    "version":  "1.16.1",
     "date":  "2026-11-24",
     "notes":  [
-                  "Schnee: neue Winternacht-Szene (Mond, fünf Reihen verschneiter Tannen im Nebel, Boden) und echter Schneefall vor den Widgets. Der Schnee setzt sich auf jedem Widget und am unteren Bildschirmrand ab; mit der Maus fegst du ihn herunter.",
-                  "Insel nur mit Musik: die Pille oben in der Mitte ist nur da, solange etwas läuft (bei Pause noch 20 s), sonst verschwindet sie. Mitteilungen holen sie kurz zurück.",
-                  "Anmeldung neu: ruhiger Hintergrund mit zwei weichen Lichtern in der Themenfarbe, Glas-Karte, Uhr ohne Dauer-Animation. Der Sperrbildschirm rendert nichts mehr im Hintergrund.",
-                  "Tempo-Modus (Einstellungen → Tempo): sparsam auf Akku oder bei heißem Prozessor, oder fest an/aus. Weniger Bilder pro Sekunde, kein Glas-Blur, keine Musik-Analyse, weniger Schnee.",
-                  "Zwischenablage-Verlauf: Strg+Alt+V zeigt die letzten 30 kopierten Texte, Klick kopiert und fügt ein.",
-                  "Launcher rechnet (12*4, sqrt(2), 19%) und kennt Befehle: sperren, schlafen, neustart, herunterfahren, abmelden, desktop, einstellungen, nicht stören, stumm, profil, beenden.",
-                  "Widgets rasten beim Verschieben an Kanten und Mitten der anderen Widgets ein, mit Hilfslinien (Alt gedrückt: frei).",
-                  "Weniger Lag: Musik-Analyse nur bei „Auf Musik reagieren“, Einstellungen und Dock bauen sich nicht mehr bei jeder Änderung komplett neu, Lautstärke-Pegel nur bei Änderung, verdeckter Desktop schläft fast ganz, Login blockiert nicht mehr (Schlüssel wird im Hintergrund berechnet), Systemabfragen seltener (Prozessliste, GPU-Zähler, nvidia-smi), Fensterpfade gecacht, Einstellungen werden gebündelt gespeichert.",
-                  "Fehler behoben: Hintergrund-Vorschauen waren nach dem ersten Mal leer; Vorschauen störten die Live-Szene; Wetter blieb nach Stadtwechsel leer; Fenster-Watchdog nach Beenden; Dock flackerte beim Vergrößern; Agentenliste wuchs ohne Ende."
+                  "Schnee: das Fegen mit der Maus funktioniert (in 1.16.0 verdeckte ein Feld die Methode); Schnee setzt sich schneller ab."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.16.0-setup.exe",
+                  "name":  "dotdesk-1.16.1-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  86115483,
-                  "sha256":  "d164efa406acb78609f588b26946f6238a5f09bf2aab07ecf41ffc1cf34f868a"
+                  "size":  86115457,
+                  "sha256":  "bbfc4393b5dede9f1956fcc0fd2a84b78284cebce1d2ec086e0054316df5dcc3"
               },
     "portable":  {
-                     "name":  "dotdesk-1.16.0-portable.exe",
+                     "name":  "dotdesk-1.16.1-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  85960217
+                     "size":  85960188
                  },
     "releases":  [
+                     {
+                         "version":  "1.16.1",
+                         "date":  "2026-11-24",
+                         "size":  86115457,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.16.1/dotdesk-1.16.1-setup.exe"
+                     },
                      {
                          "version":  "1.16.0",
                          "date":  "2026-11-24",
