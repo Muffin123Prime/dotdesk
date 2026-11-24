@@ -1,0 +1,52 @@
+{
+    "version":  "1.14.0",
+    "date":  "2026-11-24",
+    "notes":  [
+                  "Download-Seite: `http://\u003cPC-IP\u003e:7707/download` liefert den Installer der aktuellen Version an jeden PC im selben WLAN (ohne Code).",
+                  "`tools/release.ps1` baut, kopiert den Installer, schreibt `site/latest.json` und veröffentlicht auf Wunsch auf GitHub (Release + Pages).",
+                  "Die Einstellungen zeigen die Adresse der Download-Seite unter dem QR-Code."
+              ],
+    "setup":  {
+                  "name":  "dotdesk-1.14.0-setup.exe",
+                  "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
+                  "size":  86092831,
+                  "sha256":  "26cda1288c7d1fb3df571bc51716cbfea24277c492fd219d9c5695fea7fe7042"
+              },
+    "portable":  {
+                     "name":  "dotdesk-1.14.0-portable.exe",
+                     "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
+                     "size":  85937569
+                 },
+    "releases":  [
+                     {
+                         "version":  "1.14.0",
+                         "date":  "2026-11-24",
+                         "size":  86092831,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.14.0/dotdesk-1.14.0-setup.exe"
+                     },
+                     {
+                         "version":  "1.13.0",
+                         "date":  "2026-11-24",
+                         "size":  86091981,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.13.0/dotdesk-1.13.0-setup.exe"
+                     },
+                     {
+                         "version":  "1.12.0",
+                         "date":  "2026-11-23",
+                         "size":  86083680,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.12.0/dotdesk-1.12.0-setup.exe"
+                     },
+                     {
+                         "version":  "1.11.1",
+                         "date":  "2026-11-23",
+                         "size":  86073858,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.11.1/dotdesk-1.11.1-setup.exe"
+                     },
+                     {
+                         "version":  "1.11.0",
+                         "date":  "2026-11-23",
+                         "size":  86073453,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.11.0/dotdesk-1.11.0-setup.exe"
+                     }
+                 ]
+}
