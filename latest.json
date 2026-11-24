@@ -1,22 +1,36 @@
 {
-    "version":  "1.16.1",
+    "version":  "1.17.0",
     "date":  "2026-11-24",
     "notes":  [
-                  "Schnee: das Fegen mit der Maus funktioniert (in 1.16.0 verdeckte ein Feld die Methode); Schnee setzt sich schneller ab."
+                  "App-Store (zweiter Reiter im Launcher, Alt+Space → Tab, oder das Plus im Dock): Spiele, Chat, Musik \u0026 Video, Browser, Kreativ, Werkzeuge, KI. „Installieren“ holt die App im Hintergrund über winget mit Fortschritt, danach „Ins Dock“. Suche findet auch alles andere aus dem winget-Katalog.",
+                  "Jede App hat eine Detailkarte: eigener Name, eigenes Bild (wenn dotdesk kein Icon kennt oder du ein anderes willst), Ins Dock, Ausblenden, Deinstallieren. Namen und Bilder gehören zum Konto und wandern mit.",
+                  "Eigene Daten pro Benutzer: in der Detailkarte einschalten, dann hat jede Person in Roblox, Discord, Spotify, Minecraft, Telegram, WhatsApp, Epic … ihr eigenes Konto. dotdesk kennt die richtigen Ordner; beim Wechsel wird die App geschlossen und bekommt die Daten der angemeldeten Person (Verknüpfungen, keine Adminrechte nötig).",
+                  "Jeder Start fragt wieder „Wer bist du?“; „Beim Start automatisch anmelden“ ist ein ausdrücklicher Schalter im Konto (einmalig auf aus gestellt). Browser laufen jetzt standardmäßig pro Benutzer getrennt (eigener Verlauf, eigene Logins).",
+                  "Konto ganz oben in den Einstellungen: Avatar, Name (klicken und umbenennen), Farbe, Passwort, „Konto speichern \u0026 sichern“, Status der Cloud-Sicherung mit letztem Fehler, Ordner für die Übernahme, getrennte App-Daten.",
+                  "Behoben: Widget-Positionen sprangen beim Abmelden/Anmelden oder beim Wechsel zurück (eine späte Antwort des Hauptprozesses überschrieb die neuen Positionen; außerdem konnte ein Speicher-Auftrag der vorigen Person im Konto der nächsten landen). Schalter in den Einstellungen kippten optisch nicht mehr sofort.",
+                  "Behoben: Konto-Sync lief nie, weil die Werkzeuge GitHub-Zugang und Download-Seite in eine virtualisierte Kopie von AppData geschrieben hatten; der echte Ordner hat beides jetzt, `tools/release.ps1` und `tools/remote-check.ps1` treffen ihn immer.",
+                  "Profile gehen nicht mehr verloren: jeder Profilordner trägt seinen eigenen Datensatz, ein veralteter Index wird daraus beim Start wieder aufgebaut.",
+                  "Launcher merkt sich pro Benutzer die letzten Suchen; Tab wechselt zwischen Apps und Store. Hintergrundarbeit (Sync, App-Daten, Store) schreibt nach `%APPDATA%\\dotdesk\\dotdesk.log`."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.16.1-setup.exe",
+                  "name":  "dotdesk-1.17.0-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  86115457,
-                  "sha256":  "bbfc4393b5dede9f1956fcc0fd2a84b78284cebce1d2ec086e0054316df5dcc3"
+                  "size":  86131681,
+                  "sha256":  "55ce59bbce0d1e5e4f7927b92a2908223f834b52edd9a73f690dad887c2e22d2"
               },
     "portable":  {
-                     "name":  "dotdesk-1.16.1-portable.exe",
+                     "name":  "dotdesk-1.17.0-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  85960188
+                     "size":  85976409
                  },
     "releases":  [
+                     {
+                         "version":  "1.17.0",
+                         "date":  "2026-11-24",
+                         "size":  86131681,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.17.0/dotdesk-1.17.0-setup.exe"
+                     },
                      {
                          "version":  "1.16.1",
                          "date":  "2026-11-24",
