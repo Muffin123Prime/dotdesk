@@ -1,0 +1,134 @@
+<!doctype html>
+<!-- dotdesk download page. Static; reads latest.json next to it (written by tools/release.ps1 on every release). -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<title>dotdesk herunterladen</title>
+<link rel="icon" href="icon.png">
+<style>
+  :root { --bg: #000; --card: #0b0b0b; --card2: #141414; --ink: #fff; --mute: #8c8c8c; --dim: #4a4a4a; --line: #1f1f1f; --line2: #2c2c2c; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; font-size: 11px; color: var(--mute); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .mark { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .22em; font-size: 13px; }
+  .mark i { width: 9px; height: 9px; border-radius: 50%; background: #fff; display: inline-block; }
+  .hero { padding: 56px 0 28px; }
+  h1 { font-size: clamp(38px, 7vw, 68px); line-height: 1.02; margin: 0 0 18px; letter-spacing: -.02em; font-weight: 700; }
+  .sub { color: var(--mute); font-size: 18px; max-width: 560px; margin: 0 0 34px; }
+  .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; background: #fff; color: #000; text-decoration: none; font-weight: 700; font-size: 18px; padding: 18px 30px; border-radius: 16px; border: 0; cursor: pointer; transition: transform .15s, opacity .15s; }
+  .btn:hover { transform: translateY(-1px); } .btn:active { transform: translateY(1px); opacity: .9; }
+  .btn svg { width: 20px; height: 20px; }
+  .btn small { display: block; font-weight: 500; font-size: 12px; opacity: .65; }
+  .alt { color: var(--mute); font-size: 14px; } .alt a { text-decoration: underline dotted; text-underline-offset: 3px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .chip { border: 1px solid var(--line2); border-radius: 999px; padding: 5px 12px; font-size: 12px; color: var(--mute); font-family: ui-monospace, Consolas, monospace; }
+  .chip b { color: var(--ink); font-weight: 600; }
+  section { margin-top: 44px; }
+  h2 { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin: 0 0 14px; font-family: ui-monospace, Consolas, monospace; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+  ol.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  ol.steps li { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; }
+  ol.steps b { display: block; font-size: 28px; color: var(--dim); font-family: ui-monospace, Consolas, monospace; margin-bottom: 8px; }
+  ol.steps p { margin: 0; color: #d6d6d6; font-size: 15px; } ol.steps p span { color: var(--mute); }
+  ul.notes { margin: 0; padding: 0 0 0 18px; color: #d6d6d6; } ul.notes li { margin: 6px 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .grid .card { padding: 16px 18px; } .grid h3 { margin: 0 0 4px; font-size: 15px; } .grid p { margin: 0; color: var(--mute); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; } td { padding: 10px 0; border-top: 1px solid var(--line); } tr:first-child td { border-top: 0; }
+  td.v { font-weight: 600; } td.r { text-align: right; color: var(--mute); font-family: ui-monospace, Consolas, monospace; font-size: 13px; } td a { text-decoration: none; }
+  td a:hover { text-decoration: underline; }
+  .hash { word-break: break-all; font-family: ui-monospace, Consolas, monospace; font-size: 12px; color: var(--dim); }
+  footer { margin-top: 50px; color: var(--dim); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .hidden { display: none !important; }
+  kbd { font-family: ui-monospace, Consolas, monospace; background: var(--card2); border: 1px solid var(--line2); border-radius: 6px; padding: 1px 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark"><i></i>DOTDESK</div>
+    <div class="mono" id="live">Windows 10 / 11 · 64-Bit</div>
+  </header>
+
+  <div class="hero">
+    <h1>Dein Desktop<br>über Windows.</h1>
+    <p class="sub">Profile, Widgets, Dock, Insel, Launcher, Sperrbildschirm, Handy-Panel. Schlicht in Schwarz-Weiß, läuft über deinem normalen Windows und lässt sich jederzeit wieder ausschalten.</p>
+    <div class="cta">
+      <a class="btn" id="dl" href="dotdesk-setup.exe" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m6 11 6 6 6-6"/><path d="M4 21h16"/></svg>
+        <span>Herunterladen<small id="dlSub">Installer für Windows</small></span>
+      </a>
+      <div class="alt">oder <a id="dlPort" href="dotdesk-portable.exe" download>portable Version</a> ohne Installation</div>
+    </div>
+    <div class="meta">
+      <span class="chip">Version <b id="ver">–</b></span>
+      <span class="chip">Stand <b id="date">–</b></span>
+      <span class="chip">Größe <b id="size">–</b></span>
+      <span class="chip">Setup in einem Klick, kein Admin nötig</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>So geht's</h2>
+    <ol class="steps">
+      <li><b>01</b><p>Auf „Herunterladen“ tippen. Die Datei landet in deinem Downloads-Ordner.</p></li>
+      <li><b>02</b><p>Datei öffnen. <span>Fragt Windows SmartScreen: „Weitere Informationen“ und dann „Trotzdem ausführen“. Die App ist nicht signiert, deshalb die Nachfrage.</span></p></li>
+      <li><b>03</b><p>dotdesk installiert sich still und startet sofort. <span>Zurück zu Windows: <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>Q</kbd> oder das Zahnrad im Dock.</span></p></li>
+    </ol>
+  </section>
+
+  <section id="newSec" class="hidden">
+    <h2>Was ist neu in <span id="newVer"></span></h2>
+    <div class="card"><ul class="notes" id="notes"></ul></div>
+  </section>
+
+  <section>
+    <h2>Was drin ist</h2>
+    <div class="grid">
+      <div class="card"><h3>Profile</h3><p>Mehrere Personen am selben PC, jede mit eigenem Desktop, Widgets und Passwort.</p></div>
+      <div class="card"><h3>Widgets</h3><p>Uhr, Wetter, Notizen, Kalender, Agenten, Familiar-Widgets. Glas oder flach, frei anordnen.</p></div>
+      <div class="card"><h3>Insel &amp; Dock</h3><p>Musik aus Liner oder Spotify mit Songtext, Status-Pille, Dock mit echten Icons.</p></div>
+      <div class="card"><h3>Handy-Panel</h3><p>QR-Code scannen: Uhr, Systemwerte, Apps, Trackpad und Tastatur, Bildschirm des PCs auf dem iPad.</p></div>
+      <div class="card"><h3>Launcher</h3><p><kbd>Alt</kbd>+<kbd>Space</kbd>: alle Apps, auch aus dem Store, Websuche inklusive.</p></div>
+      <div class="card"><h3>Sperrbildschirm</h3><p>Login mit Passwort oder PIN, Wetter und Uhr, Profilwahl.</p></div>
+    </div>
+  </section>
+
+  <section id="allSec" class="hidden">
+    <h2>Alle Versionen</h2>
+    <div class="card"><table id="rel"></table></div>
+  </section>
+
+  <footer>
+    <span>SHA-256 des Installers: <span class="hash" id="sha">–</span></span>
+    <span>Diese Seite aktualisiert sich mit jeder neuen Version von selbst.</span>
+  </footer>
+</div>
+<script>
+  const $ = (s) => document.querySelector(s);
+  const mb = (n) => n ? (n / 1048576).toFixed(0) + ' MB' : '–';
+  const de = (d) => { try { return new Date(d + 'T12:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return d; } };
+  fetch('latest.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.ok ? r.json() : null).then((j) => {
+    if (!j) return;
+    $('#ver').textContent = j.version; $('#date').textContent = de(j.date); $('#size').textContent = mb(j.setup && j.setup.size);
+    $('#dlSub').textContent = 'dotdesk ' + j.version + ' · ' + mb(j.setup && j.setup.size);
+    if (j.setup && j.setup.url) { $('#dl').href = j.setup.url; $('#dl').setAttribute('download', j.setup.name || 'dotdesk-setup.exe'); }
+    if (j.portable && j.portable.url) { $('#dlPort').href = j.portable.url; $('#dlPort').setAttribute('download', j.portable.name || 'dotdesk-portable.exe'); }
+    if (j.setup && j.setup.sha256) $('#sha').textContent = j.setup.sha256;
+    const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c]);
+    if (Array.isArray(j.notes) && j.notes.length) { $('#newVer').textContent = j.version; $('#notes').innerHTML = j.notes.map((n) => '<li>' + esc(n).replace(/`([^`]+)`/g, '<kbd>$1</kbd>') + '</li>').join(''); $('#newSec').classList.remove('hidden'); }
+    if (Array.isArray(j.releases) && j.releases.length > 1) {
+      $('#rel').innerHTML = j.releases.map((r) => '<tr><td class="v">' + (r.url ? '<a href="' + r.url + '" download>' + r.version + '</a>' : r.version) + (r.version === j.version ? ' <span class="mono">aktuell</span>' : '') + '</td><td class="r">' + de(r.date) + '</td><td class="r">' + mb(r.size) + '</td></tr>').join('');
+      $('#allSec').classList.remove('hidden');
+    }
+    document.title = 'dotdesk ' + j.version + ' herunterladen';
+  }).catch(() => {});
+</script>
+</body>
+</html>
