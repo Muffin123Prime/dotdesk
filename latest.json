@@ -1,26 +1,29 @@
 {
-    "version":  "1.15.0",
+    "version":  "1.15.1",
     "date":  "2026-11-24",
     "notes":  [
-                  "Konto-Sync: ein neuer PC holt sich dein ganzes Konto vom alten – Einstellungen, Widgets, Hintergründe, Desktop, Dokumente, Bilder, Musik, Videos und die Liste deiner Apps (werden per winget nachinstalliert).",
-                  "Auf dem neuen PC: Sperrbildschirm → „Konto übernehmen“ → anmelden; oder den QR-Code mit dem Handy scannen und dort anmelden. Mit Fortschrittsring.",
-                  "Cloud-Sicherung: der alte PC legt eine mit deinem Passwort verschlüsselte Sicherung in der Cloud ab (automatisch nach Änderungen); sie springt ein, wenn der alte PC nicht im WLAN ist.",
-                  "Download-Seite: „Mein Konto“ – anmelden und sehen, was auf dem neuen PC ankommt.",
-                  "Einstellungen: Abschnitt „Konto \u0026 Sync“ mit Ordnerauswahl, „Jetzt sichern“ und „Konto übernehmen“."
+                  "Die erste Cloud-Sicherung startet von selbst wenige Minuten nach der Anmeldung mit Passwort.",
+                  "Sperrbildschirm: die Überschrift wechselt zu „Konto übernehmen“, solange die Sync-Ansicht offen ist."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.15.0-setup.exe",
+                  "name":  "dotdesk-1.15.1-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  86105653,
-                  "sha256":  "d77c0defc0fc8568ec1b37d839e12c39ae34d11e97a803f53c1b95bf98491594"
+                  "size":  86105635,
+                  "sha256":  "93a510d951da23bd65cd3ff96c406a4f622cea64c1626341feedfb0b5b7012f4"
               },
     "portable":  {
-                     "name":  "dotdesk-1.15.0-portable.exe",
+                     "name":  "dotdesk-1.15.1-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  85950387
+                     "size":  85950374
                  },
     "releases":  [
+                     {
+                         "version":  "1.15.1",
+                         "date":  "2026-11-24",
+                         "size":  86105635,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.15.1/dotdesk-1.15.1-setup.exe"
+                     },
                      {
                          "version":  "1.15.0",
                          "date":  "2026-11-24",
