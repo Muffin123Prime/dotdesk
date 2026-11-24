@@ -47,6 +47,33 @@
   footer { margin-top: 50px; color: var(--dim); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
   .hidden { display: none !important; }
   kbd { font-family: ui-monospace, Consolas, monospace; background: var(--card2); border: 1px solid var(--line2); border-radius: 6px; padding: 1px 6px; font-size: 13px; }
+  /* account */
+  .acct { padding: 26px; }
+  .lform { display: grid; grid-template-columns: 1fr 200px; gap: 24px; align-items: center; }
+  .lform .lead { margin: 0 0 18px; color: var(--mute); font-size: 15px; }
+  .lform label { display: block; margin: 12px 0 6px; }
+  .in { width: 100%; height: 46px; border-radius: 12px; border: 1px solid var(--line2); background: #000; color: var(--ink); font-size: 16px; padding: 0 14px; outline: none; }
+  .in:focus { border-color: var(--ink); }
+  .btn.small { font-size: 15px; padding: 13px 22px; border-radius: 13px; margin-top: 18px; }
+  .lerr { margin-top: 14px; background: var(--card2); border-radius: 12px; padding: 10px 14px; font-size: 14px; color: #ddd; }
+  .lart { display: flex; justify-content: center; }
+  .ring { position: relative; width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--line2); display: flex; align-items: center; justify-content: center; }
+  .ring i { position: absolute; inset: -5px; border-radius: 50%; border: 5px solid transparent; border-top-color: var(--ink); opacity: 0; }
+  .ring.busy i { opacity: 1; animation: spin 1s linear infinite; }
+  .ring.ok { border-color: var(--ink); animation: pop .5s cubic-bezier(.2,.9,.3,1.4); }
+  .ring span { font-size: 40px; font-weight: 700; color: var(--dim); }
+  .ring.ok span { color: var(--ink); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pop { 0% { transform: scale(.85); } 100% { transform: none; } }
+  .me { animation: rise .5s cubic-bezier(.2,.8,.2,1); }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .mehead { display: flex; align-items: center; gap: 16px; }
+  .av { width: 54px; height: 54px; border-radius: 50%; background: var(--ink); color: #000; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 22px; flex: none; }
+  .mename { font-size: 24px; font-weight: 700; letter-spacing: -.01em; }
+  .mesub { color: var(--mute); font-size: 14px; }
+  .me .meta { margin-top: 18px; }
+  .me-steps { margin-top: 22px; } .me-steps li { background: var(--card2); border-color: var(--line2); }
+  @media (max-width: 640px) { .lform { grid-template-columns: 1fr; } .lart { order: -1; } .ring { width: 110px; height: 110px; } }
 </style>
 </head>
 <body>
@@ -83,6 +110,34 @@
     </ol>
   </section>
 
+  <section id="acct">
+    <h2>Mein Konto</h2>
+    <div class="card acct">
+      <form id="lf" class="lform">
+        <div>
+          <p class="lead">Melde dich mit deinem dotdesk-Konto an. Dann siehst du, was auf dem neuen PC ankommt: Einstellungen, Widgets, Hintergründe, Dateien und Apps.</p>
+          <label class="mono" for="lu">Name des Kontos</label>
+          <input id="lu" class="in" autocomplete="username" autocapitalize="none" required>
+          <label class="mono" for="lp">Passwort</label>
+          <input id="lp" class="in" type="password" autocomplete="current-password" required>
+          <button class="btn small" id="lgo" type="submit">Anmelden</button>
+          <div id="lerr" class="lerr hidden"></div>
+        </div>
+        <div class="lart"><div class="ring" id="lring"><i></i><span id="lmark"></span></div></div>
+      </form>
+      <div id="me" class="me hidden">
+        <div class="mehead"><span class="av" id="meAv"></span><div><div class="mename" id="meName"></div><div class="mesub" id="meSub"></div></div></div>
+        <div class="meta" id="meChips"></div>
+        <ol class="steps me-steps">
+          <li><b>01</b><p>Oben „Herunterladen“ tippen und den Installer auf dem neuen PC öffnen.</p></li>
+          <li><b>02</b><p>Beim ersten Start „Konto übernehmen“ wählen und dich mit demselben Login anmelden. <span>Oder den QR-Code auf dem Bildschirm mit dem Handy scannen und dort anmelden.</span></p></li>
+          <li><b>03</b><p>Zurücklehnen. <span>Steht dein alter PC im selben WLAN, kommen alle Dateien direkt von ihm; sonst Einstellungen und Apps aus der Cloud.</span></p></li>
+        </ol>
+        <a class="btn small" id="meDl" href="dotdesk-setup.exe" download>dotdesk für den neuen PC laden</a>
+      </div>
+    </div>
+  </section>
+
   <section id="newSec" class="hidden">
     <h2>Was ist neu in <span id="newVer"></span></h2>
     <div class="card"><ul class="notes" id="notes"></ul></div>
@@ -112,8 +167,9 @@
 </div>
 <script>
   const $ = (s) => document.querySelector(s);
-  const mb = (n) => n ? (n / 1048576).toFixed(0) + ' MB' : '–';
+  const mb = (n) => (n ? (n >= 1048576 ? (n / 1048576).toFixed(0) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB') : '–');
   const de = (d) => { try { return new Date(d + 'T12:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }); } catch (e) { return d; } };
+  const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c]);
   fetch('latest.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.ok ? r.json() : null).then((j) => {
     if (!j) return;
     $('#ver').textContent = j.version; $('#date').textContent = de(j.date); $('#size').textContent = mb(j.setup && j.setup.size);
@@ -121,14 +177,55 @@
     if (j.setup && j.setup.url) { $('#dl').href = j.setup.url; $('#dl').setAttribute('download', j.setup.name || 'dotdesk-setup.exe'); }
     if (j.portable && j.portable.url) { $('#dlPort').href = j.portable.url; $('#dlPort').setAttribute('download', j.portable.name || 'dotdesk-portable.exe'); }
     if (j.setup && j.setup.sha256) $('#sha').textContent = j.setup.sha256;
-    const esc = (s) => String(s).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c]);
     if (Array.isArray(j.notes) && j.notes.length) { $('#newVer').textContent = j.version; $('#notes').innerHTML = j.notes.map((n) => '<li>' + esc(n).replace(/`([^`]+)`/g, '<kbd>$1</kbd>') + '</li>').join(''); $('#newSec').classList.remove('hidden'); }
     if (Array.isArray(j.releases) && j.releases.length > 1) {
       $('#rel').innerHTML = j.releases.map((r) => '<tr><td class="v">' + (r.url ? '<a href="' + r.url + '" download>' + r.version + '</a>' : r.version) + (r.version === j.version ? ' <span class="mono">aktuell</span>' : '') + '</td><td class="r">' + de(r.date) + '</td><td class="r">' + mb(r.size) + '</td></tr>').join('');
       $('#allSec').classList.remove('hidden');
     }
     document.title = 'dotdesk ' + j.version + ' herunterladen';
+    if (j.repo) REPO = j.repo;
+    if (j.setup && j.setup.url) $('#meDl').href = j.setup.url;
   }).catch(() => {});
+
+  // ---- Mein Konto: the encrypted account bundle lives in the GitHub release "sync"; the password decrypts it here ----
+  let REPO = null;
+  (function () { const h = location.hostname, m = /^([^.]+)\.github\.io$/.exec(h), seg = location.pathname.split('/').filter(Boolean)[0]; if (m && seg) REPO = m[1] + '/' + seg; })();
+  const slug = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'konto';
+  const hex2b = (h) => new Uint8Array(h.match(/../g).map((x) => parseInt(x, 16)));
+  async function gunzip(u8) { const ds = new DecompressionStream('gzip'); const w = ds.writable.getWriter(); w.write(u8); w.close(); return new Uint8Array(await new Response(ds.readable).arrayBuffer()); }
+  async function openBundle(user, pass) {
+    // the account card lives in the repo (sync/<name>.card): same origin on GitHub Pages, raw.githubusercontent.com elsewhere
+    const onPages = /\.github\.io$/.test(location.hostname);
+    const url = onPages ? 'sync/' + slug(user) + '.card?v=' + Date.now() : (REPO ? 'https://raw.githubusercontent.com/' + REPO + '/main/sync/' + slug(user) + '.card?v=' + Date.now() : null);
+    if (!url) throw new Error('Diese Seite kennt ihr GitHub-Repo nicht.');
+    const r = await fetch(url, { cache: 'no-store' });
+    if (r.status === 404) throw new Error('Kein Konto „' + user + '“ in der Cloud. Auf dem alten PC in den Einstellungen „Jetzt sichern“ drücken.');
+    if (!r.ok) throw new Error('Download fehlgeschlagen (' + r.status + ')');
+    const buf = new Uint8Array(await r.arrayBuffer()), td = new TextDecoder();
+    if (td.decode(buf.slice(0, 8)) !== 'DOTSYNC1') throw new Error('Kein Sync-Paket');
+    const hl = (buf[8] << 8) | buf[9], header = JSON.parse(td.decode(buf.slice(10, 10 + hl))), iv = buf.slice(10 + hl, 22 + hl), body = buf.slice(22 + hl);
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: hex2b(header.salt), iterations: header.iter || 600000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    let plain; try { plain = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, body)); } catch (e) { throw new Error('Falsches Passwort.'); }
+    const raw = await gunzip(plain), len = (raw[0] << 24) | (raw[1] << 16) | (raw[2] << 8) | raw[3];
+    return { header, index: JSON.parse(td.decode(raw.slice(4, 4 + len))), size: buf.length };
+  }
+  $('#lf').addEventListener('submit', async (e) => {
+    e.preventDefault(); const ring = $('#lring'); $('#lerr').classList.add('hidden'); ring.classList.add('busy'); ring.classList.remove('ok'); $('#lgo').disabled = true; $('#lmark').textContent = '';
+    try {
+      const { header, index, size } = await openBundle($('#lu').value.trim(), $('#lp').value);
+      ring.classList.remove('busy'); ring.classList.add('ok'); $('#lmark').textContent = '✓';
+      const s = index.settings || {}, pc = header.pc || index.pc || '', at = new Date(header.at || index.at || Date.now());
+      $('#meAv').textContent = (index.user || '?').slice(0, 1).toUpperCase(); $('#meName').textContent = 'Hallo ' + (index.user || '');
+      $('#meSub').textContent = 'Gesichert von ' + pc + ' am ' + at.toLocaleDateString('de-DE', { day: 'numeric', month: 'long' }) + ' um ' + at.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+      const wp = s.wallpaper && s.wallpaper.type === 'image' ? 'eigenes Foto' : (s.wallpaper && s.wallpaper.scene) || 'Tageszeit';
+      const FN = { desktop: 'Desktop', documents: 'Dokumente', pictures: 'Bilder', music: 'Musik', videos: 'Videos', downloads: 'Downloads' };
+      const chips = [['Apps', header.apps || 0], ['Widgets', (s.widgets || []).length], ['Dock', ((s.dock || {}).items || []).length], ['Thema', s.theme || 'mono'], ['Hintergrund', wp], ['Ordner', (index.folders || []).map((f) => FN[f] || f).join(', ') || '–'], ['Sicherung', mb(index.bundle || size)]];
+      $('#meChips').innerHTML = chips.map((c) => '<span class="chip">' + c[0] + ' <b>' + esc(c[1]) + '</b></span>').join('');
+      setTimeout(() => { $('#lf').classList.add('hidden'); $('#me').classList.remove('hidden'); }, 650);
+    } catch (x) { ring.classList.remove('busy'); $('#lerr').textContent = String(x.message || x); $('#lerr').classList.remove('hidden'); }
+    $('#lgo').disabled = false;
+  });
 </script>
 </body>
 </html>
