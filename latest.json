@@ -1,24 +1,28 @@
 {
-    "version":  "1.19.0",
+    "version":  "1.19.1",
     "date":  "2026-11-25",
     "notes":  [
-                  "Die Krake kostet nichts: vieles erledigt sie jetzt von selbst, ohne KI-Modell – ein YouTube-Video (der erste Treffer startet direkt), Webseiten und Google-Suchen, Apps öffnen, tippen, Enter, Rechnen im Rechner, Musik weiter/Pause/nächstes Lied, Lautstärke, stumm, sperren, Ruhezustand.",
-                  "Für alles andere denkt sie mit Claude Code über dein Claude-Abo, ohne Extrakosten: im Handy-Panel unter „Krake“ einmal „Claude Code installieren“ und „Mit Claude-Abo anmelden“ (Link antippen, Code einfügen). Claude Code bekommt nur die Hände der Krake (Bildschirm sehen, klicken, tippen, öffnen), keine Dateien, keine Shell.",
-                  "Gehirn wählbar: Automatisch (kostenlos zuerst, dann Claude Code, dann API-Schlüssel), nur kostenlos, Claude Code, API-Schlüssel."
+                  "Die Krake arbeitet nicht, solange der Sperrbildschirm offen ist („Erst am PC anmelden“)."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.19.0-setup.exe",
+                  "name":  "dotdesk-1.19.1-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  87924298,
-                  "sha256":  "cf789f0552a54df4b1d41c94d9b92e154d79581d0bf52ed587274aef247f2410"
+                  "size":  87924352,
+                  "sha256":  "89bcaf2337970901776fc9e154d4c63e82b416618829e0dcc2fcd8d554915350"
               },
     "portable":  {
-                     "name":  "dotdesk-1.19.0-portable.exe",
+                     "name":  "dotdesk-1.19.1-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  87769050
+                     "size":  87769090
                  },
     "releases":  [
+                     {
+                         "version":  "1.19.1",
+                         "date":  "2026-11-25",
+                         "size":  87924352,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.19.1/dotdesk-1.19.1-setup.exe"
+                     },
                      {
                          "version":  "1.19.0",
                          "date":  "2026-11-25",
