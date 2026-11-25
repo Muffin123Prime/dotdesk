@@ -1,25 +1,30 @@
 {
-    "version":  "1.18.0",
+    "version":  "1.19.0",
     "date":  "2026-11-25",
     "notes":  [
-                  "Die Krake: eine neue Seite „Krake“ im Handy-Panel. Mikrofon gedrückt halten (oder tippen) und sagen, was am PC passieren soll: „Geh auf YouTube und spiel das neue Video von …“. Auf dem PC erscheint eine Krake, die mit ihren Tentakeln klickt, tippt, scrollt und Tasten drückt, mit Sprechblase, Tipp-Wellen, fliegenden Buchstaben und einem Scan-Streifen, wenn sie hinschaut.",
-                  "Die Krake denkt mit Claude (Opus 5.5, wahlweise Sonnet 5.5) über den Computer-Werkzeugkasten: sie sieht den Bildschirm, öffnet Webseiten im eigenen Browser der Person, startet Programme, klickt und tippt, bis der Auftrag erledigt ist. Sie tippt keine Passwörter, kauft nichts und schickt nichts ab, wenn es nicht ausdrücklich verlangt ist. Strg+Alt+K oder „Stopp“ am Handy hält sie sofort an.",
-                  "Dafür braucht sie einen eigenen Claude-Schlüssel (console.anthropic.com → API Keys), einzutragen am Handy oder in den Einstellungen → Die Krake; er liegt verschlüsselt auf dem PC. Einstellungen: Modell, Gründlichkeit, Krake anzeigen, Auftrag direkt tippen.",
-                  "Die Steuerung am PC kann jetzt absolute Mausbewegungen, Ziehen, alle Tastenkombinationen und gehaltene Umschalttasten."
+                  "Die Krake kostet nichts: vieles erledigt sie jetzt von selbst, ohne KI-Modell – ein YouTube-Video (der erste Treffer startet direkt), Webseiten und Google-Suchen, Apps öffnen, tippen, Enter, Rechnen im Rechner, Musik weiter/Pause/nächstes Lied, Lautstärke, stumm, sperren, Ruhezustand.",
+                  "Für alles andere denkt sie mit Claude Code über dein Claude-Abo, ohne Extrakosten: im Handy-Panel unter „Krake“ einmal „Claude Code installieren“ und „Mit Claude-Abo anmelden“ (Link antippen, Code einfügen). Claude Code bekommt nur die Hände der Krake (Bildschirm sehen, klicken, tippen, öffnen), keine Dateien, keine Shell.",
+                  "Gehirn wählbar: Automatisch (kostenlos zuerst, dann Claude Code, dann API-Schlüssel), nur kostenlos, Claude Code, API-Schlüssel."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.18.0-setup.exe",
+                  "name":  "dotdesk-1.19.0-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  87910785,
-                  "sha256":  "1530f858c534de1f2506b0e1372855aadbb581e8843a31b92a826b364356ec1a"
+                  "size":  87924298,
+                  "sha256":  "cf789f0552a54df4b1d41c94d9b92e154d79581d0bf52ed587274aef247f2410"
               },
     "portable":  {
-                     "name":  "dotdesk-1.18.0-portable.exe",
+                     "name":  "dotdesk-1.19.0-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  87755541
+                     "size":  87769050
                  },
     "releases":  [
+                     {
+                         "version":  "1.19.0",
+                         "date":  "2026-11-25",
+                         "size":  87924298,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.19.0/dotdesk-1.19.0-setup.exe"
+                     },
                      {
                          "version":  "1.18.0",
                          "date":  "2026-11-25",
