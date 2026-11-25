@@ -1,24 +1,28 @@
 {
-    "version":  "1.20.0",
+    "version":  "1.20.1",
     "date":  "2026-11-25",
     "notes":  [
-                  "Gemini als kostenloses Gehirn: ein Gemini-Schlüssel (aistudio.google.com, kostenlos) ins Schlüssel-Feld, fertig. Die Krake nimmt ihn automatisch vor Claude Code und vor dem bezahlten Claude-Schlüssel.",
-                  "Live sprechen: einmal auf das Mikrofon tippen, dann einfach reden. Jeder Satz wird sofort ein Auftrag, auch während die Krake arbeitet (sie reiht sie auf und macht sie nacheinander), ohne Antworten. Das braucht die sichere Verbindung: dotdesk liefert das Panel jetzt auch über https (Port 7708) mit eigenem Zertifikat; einmal am iPad „Zertifikat installieren“ und vertrauen, dann über den https-Link öffnen.",
-                  "Die Krake neu gezeichnet: runder Kopf mit Licht und Schatten, große Augen, Wangen, geschwungene Tentakel mit Saugnäpfen und eingerollten Spitzen."
+                  "Gemini-Schlüssel, die mit „AQ“ beginnen (neues Google-Format), werden angenommen; jeder Schlüssel wird beim Speichern einmal bei Google geprüft, mit klarer Meldung, wenn er nicht passt."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.20.0-setup.exe",
+                  "name":  "dotdesk-1.20.1-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  87930120,
-                  "sha256":  "2eb33ff56c0f8a72392a58266b75c420f5ffb2e854a2e634ddb185b2e2aa6c44"
+                  "size":  87930410,
+                  "sha256":  "71d3b9371c8d4a3773684c508cb721af51eeb8991bb03e61658a8351f10fc34e"
               },
     "portable":  {
-                     "name":  "dotdesk-1.20.0-portable.exe",
+                     "name":  "dotdesk-1.20.1-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  87774866
+                     "size":  87775147
                  },
     "releases":  [
+                     {
+                         "version":  "1.20.1",
+                         "date":  "2026-11-25",
+                         "size":  87930410,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.20.1/dotdesk-1.20.1-setup.exe"
+                     },
                      {
                          "version":  "1.20.0",
                          "date":  "2026-11-25",
