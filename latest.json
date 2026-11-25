@@ -1,22 +1,29 @@
 {
-    "version":  "1.20.1",
+    "version":  "1.20.2",
     "date":  "2026-11-25",
     "notes":  [
-                  "Gemini-Schlüssel, die mit „AQ“ beginnen (neues Google-Format), werden angenommen; jeder Schlüssel wird beim Speichern einmal bei Google geprüft, mit klarer Meldung, wenn er nicht passt."
+                  "Schlüssel aus dem Google-Cloud-Expressmodus (beginnen mit „AQ.“) funktionieren jetzt: dotdesk schickt sie an Vertex AI statt an die Gemini-Entwickler-API, wo sie als ungültig galten. Schlüssel von aistudio.google.com (AIza…) gehen wie bisher und bleiben dauerhaft kostenlos; der Expressmodus ist 90 Tage kostenlos.",
+                  "Der Hinweis am Schlüssel-Feld sagt jetzt, woher die beiden Schlüsselarten kommen und dass man sie kopieren statt abtippen soll (ein abgetippter Schlüssel mit Lese-Fehler wird von Google abgelehnt)."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.20.1-setup.exe",
+                  "name":  "dotdesk-1.20.2-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  87930410,
-                  "sha256":  "71d3b9371c8d4a3773684c508cb721af51eeb8991bb03e61658a8351f10fc34e"
+                  "size":  87931251,
+                  "sha256":  "e4161d45b51895437e037e5754c1cada93154156f2151c6fb8cdc59492ab9bb7"
               },
     "portable":  {
-                     "name":  "dotdesk-1.20.1-portable.exe",
+                     "name":  "dotdesk-1.20.2-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  87775147
+                     "size":  87776006
                  },
     "releases":  [
+                     {
+                         "version":  "1.20.2",
+                         "date":  "2026-11-25",
+                         "size":  87931251,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.20.2/dotdesk-1.20.2-setup.exe"
+                     },
                      {
                          "version":  "1.20.1",
                          "date":  "2026-11-25",
