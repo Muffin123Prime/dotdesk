@@ -1,23 +1,29 @@
 {
-    "version":  "1.20.3",
+    "version":  "1.20.4",
     "date":  "2026-11-25",
     "notes":  [
-                  "Gemini: Google gibt neuen Schlüsseln Gemini 2.5 Flash nicht mehr (Antwort 404 „no longer available to new users“). dotdesk nimmt jetzt den neuesten Flash aus der Modellliste (zurzeit Gemini 3.8 Flash) und weicht bei „hoher Nachfrage“ (503) sofort auf den nächstälteren Flash aus (3.7, 3.6 …), statt minutenlang zu warten; das Modell, das antwortet, bleibt eine Stunde lang die erste Wahl. Mehr Platz fürs Denken von Gemini 3 (8192 Ausgabe-Token).",
-                  "Neue Schlüssel von aistudio.google.com beginnen inzwischen auch mit „AQ.“ und gehören zur Entwickler-API; der Hinweis am Schlüssel-Feld sagt das jetzt richtig. Ein mit 1.20.1 gespeicherter Schlüssel läuft weiter über die Entwickler-API."
+                  "Die Krake ist mit Gemini deutlich schneller: Gemini denkt nur noch kurz nach (Stufe „low“ statt „medium“; bei Gemini 2.5 ein kleines Budget), Bildschirmfotos gehen als JPEG statt PNG (etwa ein Zehntel der Datenmenge), und die Regeln sagen ihr, dass nach jedem Zug von selbst ein frisches Bild kommt, damit sie nicht mehr nach jeder Aktion extra „warten“ und „Bildschirmfoto“ anfordert. Im Protokoll steht pro Schritt, wie lange Gemini gebraucht hat.",
+                  "Handy-/iPad-Panel: Ein Panel, das über ein Update hinweg offen bleibt (zum Beispiel vom Home-Bildschirm), lädt sich jetzt von selbst neu, sobald der PC mit einer neueren dotdesk-Version antwortet. Bisher zeigte es die alte Oberfläche, bis man es schloss und neu öffnete."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.20.3-setup.exe",
+                  "name":  "dotdesk-1.20.4-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  87931581,
-                  "sha256":  "1d667c0c3849b14568db6275f85fd51359cf1201dbe74edad189c42ca68b8980"
+                  "size":  87932548,
+                  "sha256":  "798e77b59acf87d4b884375cb089040689b4b4a938e8bb215244ef6f3839505a"
               },
     "portable":  {
-                     "name":  "dotdesk-1.20.3-portable.exe",
+                     "name":  "dotdesk-1.20.4-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  87776326
+                     "size":  87777283
                  },
     "releases":  [
+                     {
+                         "version":  "1.20.4",
+                         "date":  "2026-11-25",
+                         "size":  87932548,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.20.4/dotdesk-1.20.4-setup.exe"
+                     },
                      {
                          "version":  "1.20.3",
                          "date":  "2026-11-25",
