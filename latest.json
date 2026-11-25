@@ -1,30 +1,31 @@
 {
-    "version":  "1.17.0",
-    "date":  "2026-11-24",
+    "version":  "1.18.0",
+    "date":  "2026-11-25",
     "notes":  [
-                  "App-Store (zweiter Reiter im Launcher, Alt+Space → Tab, oder das Plus im Dock): Spiele, Chat, Musik \u0026 Video, Browser, Kreativ, Werkzeuge, KI. „Installieren“ holt die App im Hintergrund über winget mit Fortschritt, danach „Ins Dock“. Suche findet auch alles andere aus dem winget-Katalog.",
-                  "Jede App hat eine Detailkarte: eigener Name, eigenes Bild (wenn dotdesk kein Icon kennt oder du ein anderes willst), Ins Dock, Ausblenden, Deinstallieren. Namen und Bilder gehören zum Konto und wandern mit.",
-                  "Eigene Daten pro Benutzer: in der Detailkarte einschalten, dann hat jede Person in Roblox, Discord, Spotify, Minecraft, Telegram, WhatsApp, Epic … ihr eigenes Konto. dotdesk kennt die richtigen Ordner; beim Wechsel wird die App geschlossen und bekommt die Daten der angemeldeten Person (Verknüpfungen, keine Adminrechte nötig).",
-                  "Jeder Start fragt wieder „Wer bist du?“; „Beim Start automatisch anmelden“ ist ein ausdrücklicher Schalter im Konto (einmalig auf aus gestellt). Browser laufen jetzt standardmäßig pro Benutzer getrennt (eigener Verlauf, eigene Logins).",
-                  "Konto ganz oben in den Einstellungen: Avatar, Name (klicken und umbenennen), Farbe, Passwort, „Konto speichern \u0026 sichern“, Status der Cloud-Sicherung mit letztem Fehler, Ordner für die Übernahme, getrennte App-Daten.",
-                  "Behoben: Widget-Positionen sprangen beim Abmelden/Anmelden oder beim Wechsel zurück (eine späte Antwort des Hauptprozesses überschrieb die neuen Positionen; außerdem konnte ein Speicher-Auftrag der vorigen Person im Konto der nächsten landen). Schalter in den Einstellungen kippten optisch nicht mehr sofort.",
-                  "Behoben: Konto-Sync lief nie, weil die Werkzeuge GitHub-Zugang und Download-Seite in eine virtualisierte Kopie von AppData geschrieben hatten; der echte Ordner hat beides jetzt, `tools/release.ps1` und `tools/remote-check.ps1` treffen ihn immer.",
-                  "Profile gehen nicht mehr verloren: jeder Profilordner trägt seinen eigenen Datensatz, ein veralteter Index wird daraus beim Start wieder aufgebaut.",
-                  "Launcher merkt sich pro Benutzer die letzten Suchen; Tab wechselt zwischen Apps und Store. Hintergrundarbeit (Sync, App-Daten, Store) schreibt nach `%APPDATA%\\dotdesk\\dotdesk.log`."
+                  "Die Krake: eine neue Seite „Krake“ im Handy-Panel. Mikrofon gedrückt halten (oder tippen) und sagen, was am PC passieren soll: „Geh auf YouTube und spiel das neue Video von …“. Auf dem PC erscheint eine Krake, die mit ihren Tentakeln klickt, tippt, scrollt und Tasten drückt, mit Sprechblase, Tipp-Wellen, fliegenden Buchstaben und einem Scan-Streifen, wenn sie hinschaut.",
+                  "Die Krake denkt mit Claude (Opus 5.5, wahlweise Sonnet 5.5) über den Computer-Werkzeugkasten: sie sieht den Bildschirm, öffnet Webseiten im eigenen Browser der Person, startet Programme, klickt und tippt, bis der Auftrag erledigt ist. Sie tippt keine Passwörter, kauft nichts und schickt nichts ab, wenn es nicht ausdrücklich verlangt ist. Strg+Alt+K oder „Stopp“ am Handy hält sie sofort an.",
+                  "Dafür braucht sie einen eigenen Claude-Schlüssel (console.anthropic.com → API Keys), einzutragen am Handy oder in den Einstellungen → Die Krake; er liegt verschlüsselt auf dem PC. Einstellungen: Modell, Gründlichkeit, Krake anzeigen, Auftrag direkt tippen.",
+                  "Die Steuerung am PC kann jetzt absolute Mausbewegungen, Ziehen, alle Tastenkombinationen und gehaltene Umschalttasten."
               ],
     "repo":  "Muffin123Prime/dotdesk",
     "setup":  {
-                  "name":  "dotdesk-1.17.0-setup.exe",
+                  "name":  "dotdesk-1.18.0-setup.exe",
                   "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-setup.exe",
-                  "size":  86131681,
-                  "sha256":  "55ce59bbce0d1e5e4f7927b92a2908223f834b52edd9a73f690dad887c2e22d2"
+                  "size":  87910785,
+                  "sha256":  "1530f858c534de1f2506b0e1372855aadbb581e8843a31b92a826b364356ec1a"
               },
     "portable":  {
-                     "name":  "dotdesk-1.17.0-portable.exe",
+                     "name":  "dotdesk-1.18.0-portable.exe",
                      "url":  "https://github.com/Muffin123Prime/dotdesk/releases/latest/download/dotdesk-portable.exe",
-                     "size":  85976409
+                     "size":  87755541
                  },
     "releases":  [
+                     {
+                         "version":  "1.18.0",
+                         "date":  "2026-11-25",
+                         "size":  87910785,
+                         "url":  "https://github.com/Muffin123Prime/dotdesk/releases/download/v1.18.0/dotdesk-1.18.0-setup.exe"
+                     },
                      {
                          "version":  "1.17.0",
                          "date":  "2026-11-24",
